@@ -1,9 +1,11 @@
 package rw.ac.rca.webapp.web;
 
+import org.fusesource.jansi.Ansi;
 import rw.ac.rca.webapp.dao.*;
 import rw.ac.rca.webapp.dao.impl.*;
 import rw.ac.rca.webapp.orm.*;
 import rw.ac.rca.webapp.orm.Student;
+import rw.ac.rca.webapp.util.Formatter;
 import rw.ac.rca.webapp.util.UserRole;
 
 import java.io.IOException;
@@ -44,6 +46,12 @@ public class UpdateResource extends HttpServlet {
         String action = request.getParameter("page");
 
         switch (action){
+            case "updateEmployee":
+                Employee employee = employeeDAO.getEmployeeById(id);
+                request.setAttribute("employee", employee);
+                request.setAttribute("id", id);
+                request.getRequestDispatcher("WEB-INF/pages/employee/updateEmployee.jsp").forward(request, response);
+                break;
             case "updateMark":
                 Mark mark = markDAO.getMarkById(id);
                 request.setAttribute("mark", mark);
@@ -52,6 +60,7 @@ public class UpdateResource extends HttpServlet {
                 break;
             case "updateStudent":
                 Student student = studentDAO.getStudentById(id);
+                Formatter.printRedMessage("Student gotten : " + student);
                 request.setAttribute("student", student);
                 request.setAttribute("id", id);
                 request.getRequestDispatcher("WEB-INF/pages/student/updateStudent.jsp").forward(request, response);
@@ -67,12 +76,6 @@ public class UpdateResource extends HttpServlet {
                 request.setAttribute("manager", manager);
                 request.setAttribute("id",id);
                 request.getRequestDispatcher("WEB-INF/pages/manager/updateManager.jsp").forward(request, response);
-                break;
-            case "updateEmployee":
-                Employee employee = employeeDAO.getEmployeeById(id);
-                request.setAttribute("employee", employee);
-                request.setAttribute("id", id);
-                request.getRequestDispatcher("WEB-INF/pages/employee/updateEmployee.jsp").forward(request, response);
                 break;
             case "updateUser":
                 User user = userDAO.getUserById(id);
@@ -107,6 +110,23 @@ public class UpdateResource extends HttpServlet {
         Course course = null;
         try {
             switch (action){
+                case "updateEmployee":
+                    Employee availableEmployee = employeeDAO.getEmployeeById(id);
+                    employee = new Employee(
+                            request.getParameter("firstName"),
+                            request.getParameter("lastName"),
+                            request.getParameter("phoneNumber"),
+                            simpleDateFormat.parse(request.getParameter("dob"))
+                    );
+                    availableEmployee.setDateOfBirth(employee.getDateOfBirth());
+                    availableEmployee.setFirstName(employee.getFirstName());
+                    availableEmployee.setLastName(employee.getLastName());
+                    availableEmployee.setPhoneNumber(employee.getPhoneNumber());
+                    employeeDAO.saveOrUpdateEmployee(availableEmployee);
+                    request.setAttribute("responseMessage", "Employee updated successfully.!");
+                    request.setAttribute("employees", employeeDAO.getAllEmployees());
+                    request.getRequestDispatcher("WEB-INF/pages/employee/employees.jsp").forward(request, response);
+                    break;
                 case "updateMark":
                     Mark availableMark = markDAO.getMarkById(id);
                     mark = new Mark(
@@ -154,7 +174,7 @@ public class UpdateResource extends HttpServlet {
                     request.setAttribute("responseMessage", "Course updated successfully");
                     request.setAttribute("success", true);
                     request.setAttribute("courses", courseDAO.getAllCourses());
-                    request.getRequestDispatcher("WEB-INF/pages/courses.jsp").forward(request, response);
+                    request.getRequestDispatcher("WEB-INF/pages/listcourse.jsp").forward(request, response);
                     break;
                 case "updateManager":
                     Manager availableManager = managerDAO.getManagerById(id);
@@ -174,17 +194,6 @@ public class UpdateResource extends HttpServlet {
                     request.setAttribute("managers", managerDAO.getAllManagers());
                     request.getRequestDispatcher("WEB-INF/pages/managers.jsp").forward(request, response);
                     break;
-                case "updateEmployee":
-                    Employee availableEmployee = employeeDAO.getEmployeeById(id);
-                    availableEmployee.setFirstName( request.getParameter("firstName"));
-                    availableEmployee.setLastName(request.getParameter("lastName"));
-                    availableEmployee.setPhoneNumber(request.getParameter("phoneNumber"));
-                    availableEmployee.setDateOfBirth(simpleDateFormat.parse(request.getParameter("dateOfBirth")));
-                    employeeDAO.saveOrUpdateEmployee(availableEmployee);
-                    request.setAttribute("employees", employeeDAO.getAllEmployees());
-                    request.setAttribute("responseMessage", "Employee updated successfully");
-                    request.getRequestDispatcher("WEB-INF/pages/employees.jsp").forward(request, response);
-                    break;
                 case "updateUser":
                     User availableUser = userDAO.getUserById(id);
                     availableUser.setEmail(request.getParameter("email"));
@@ -192,10 +201,11 @@ public class UpdateResource extends HttpServlet {
                     availableUser.setFullName(request.getParameter("userfullname"));
                     availableUser.setUsername(request.getParameter("username"));
                     availableUser.setUserRole(UserRole.valueOf(request.getParameter("userRoles")));
+                    Formatter.printRedMessage("Updating the user.......");
                     userDAO.saveOrUpdateUser(availableUser);
                     request.setAttribute("users", userDAO.getAllUsers());
                     request.setAttribute("responseMessage", "User updated successfully");
-                    request.getRequestDispatcher("WEB-INF/pages/mark/updateUser.jsp").forward(request, response);
+                    request.getRequestDispatcher("WEB-INF/pages/users.jsp").forward(request, response);
                     break;
                 case "updateInstructor":
                     Instructor availableInstructor = instructorDAO.getInstructorById(id);
@@ -205,7 +215,7 @@ public class UpdateResource extends HttpServlet {
                     availableInstructor.setRemunerationDate(simpleDateFormat.parse(request.getParameter("renumerationTime")));
                     availableInstructor.setDateOfBirth(simpleDateFormat.parse(request.getParameter("dob")));
                     instructorDAO.saveInstructor(availableInstructor);
-                    request.setAttribute("instuctors", instructorDAO.getAllInstructors());
+                    request.setAttribute("instructors", instructorDAO.getAllInstructors());
                     request.setAttribute("responseMessage", "Instructor updated successfully");
                     request.getRequestDispatcher("WEB-INF/pages/instructors.jsp").forward(request, response);
                     break;
@@ -213,7 +223,7 @@ public class UpdateResource extends HttpServlet {
                     request.getRequestDispatcher("WEB-INF/pages/notfound.jsp").forward(request, response);
             }
         }catch (Exception exception){
-            System.out.println("Exception met when updating the resource");
+           Formatter.printRedMessage("Exception met when updating the resource" + exception.getMessage()) ;
         }
 
     }

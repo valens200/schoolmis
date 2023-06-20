@@ -2,6 +2,8 @@ package rw.ac.rca.webapp.web.employee;
 import rw.ac.rca.webapp.dao.EmployeeDAO;
 import rw.ac.rca.webapp.dao.impl.EmployeeDAOImpl;
 import rw.ac.rca.webapp.orm.Employee;
+import rw.ac.rca.webapp.util.Formatter;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -38,14 +40,15 @@ public class CreateEmployee extends HttpServlet {
         if (pageRedirect != null) {
             System.out.println("The print statement is and the only is: " + pageRedirect);
             if (pageRedirect.equals("createEmployee")) {
-                request.getRequestDispatcher("WEB-INF/employee/createEmployee.jsp").forward(request, response);
+                Formatter.printRedMessage("The direct page has gotten");
+                request.getRequestDispatcher("WEB-INF/pages/employee/createEmployee.jsp").forward(request, response);
             } else {
                 request.setAttribute("error ", "No user found");
-                request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/pages/login.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("error ", "No user found");
-            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/pages/login.jsp").forward(request, response);
         }
     }
     /**
@@ -65,18 +68,15 @@ public class CreateEmployee extends HttpServlet {
                             request.getParameter("firstName"),
                             request.getParameter("lastName"),
                             request.getParameter("phoneNumber"),
-                            simpleDateFormat.parse(request.getParameter("dateOfBirth"))
+                            simpleDateFormat.parse(request.getParameter("dob"))
                     );
-                } catch ( Exception e) {
-                    throw new RuntimeException(e);
-                }
-                // Saving the parent;
-                try {
+                            // Saving the parent;
                     employeeDAO.saveOrUpdateEmployee(employee);
                     List<Employee> employees = employeeDAO.getAllEmployees();
                     request.setAttribute("success" , "Successfully created the employee" );
                     request.setAttribute("employees", employees);
-                    request.getRequestDispatcher("WEB-INF/employee/employees.jsp").forward(request , response);
+                    request.setAttribute("responseMessage", "Employee registered successfully");
+                    request.getRequestDispatcher("WEB-INF/pages/employee/employees.jsp").forward(request , response);
                 }catch (Exception e){
                     request.setAttribute("error" , "Failed to create the Course" );
                     request.getRequestDispatcher("WEB-INF/employee/createEmployee.jsp").forward(request , response);

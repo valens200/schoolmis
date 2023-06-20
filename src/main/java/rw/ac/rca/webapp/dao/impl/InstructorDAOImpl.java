@@ -54,7 +54,7 @@ public class InstructorDAOImpl extends DAO implements InstructorDAO {
             begin();
             Query query = getSession().createQuery("from Instructor where id =:idValue");
             query.setParameter("idValue", id);
-            Instructor instructor = (Instructor) query.list();
+            Instructor instructor = (Instructor) query.uniqueResult();
             commit();
             return  instructor;
         }catch (Exception exception){

@@ -35,15 +35,15 @@
                 type="text"
                 required />
     </div>
-    <div class="flex flex-col gap-y-1">
-        <label class=" px-2" for="email">Email </label>
-        <input
-                class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
-                name="email"
-                value="${student.email}"
-                type="text"
-                required />
-    </div>
+<%--    <div class="flex flex-col gap-y-1">--%>
+<%--        <label class=" px-2" for="email">Email </label>--%>
+<%--        <input--%>
+<%--                class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"--%>
+<%--                name="email"--%>
+<%--                value="${student.email}"--%>
+<%--                type="text"--%>
+<%--                required />--%>
+<%--    </div>--%>
     <div class="flex flex-col gap-y-1">
         <label class=" px-2" for="phoneNumber"> phoneNumber</label>
         <input

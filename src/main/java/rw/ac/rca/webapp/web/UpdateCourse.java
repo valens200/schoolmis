@@ -38,7 +38,6 @@ public class UpdateCourse extends HttpServlet {
         // TODO Auto-generated method stub
         String pageRedirect = request.getPathInfo().substring(1);
         String id = request.getParameter("id");
-        System.out.println(id  + " ==================== id ==============") ;
         HttpSession httpSession = request.getSession();
         Object user = httpSession.getAttribute("authenticatedUser");
         System.out.println("The user in session is: " + user);

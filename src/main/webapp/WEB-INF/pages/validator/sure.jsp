@@ -11,7 +11,7 @@
 <form
         class="flex h-fit shadow-lg  flex-col w-[40%] p-4  mx-auto  gap-y-4"
         method="POST"
-        action="delete.php?id=${id}&page=deleteMark"
+        action="delete.php?id=${id}&page=${page}"
 >
   <h2 class=" text-center font-sans ">${message}</h2>
 
@@ -22,12 +22,14 @@
    >
      Delete
    </button>
+ <a href="${path}">
    <button
            class="p-3 mt-1 px-3 rounded-md w-fit bg-violet-800 hover:bg-violet-900 duration-300 uppercase  text-white text-sm"
            type="button"
    >
      Cancel
    </button>
+ </a>
  </div>
 </form>
 <%--<%@ include file="../../components/footer.jsp" %>--%>

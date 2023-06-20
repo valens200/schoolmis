@@ -50,7 +50,7 @@ public class ManagerDAOImpl extends  DAO implements ManagerDAO {
             begin();
             Query query = getSession().createQuery("from Manager where id =:id");
             query.setParameter("id", id);
-            Manager manager = (Manager) query.list();
+            Manager manager = (Manager) query.uniqueResult();
             commit();
             return manager;
         }catch (Exception exception){

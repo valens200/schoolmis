@@ -6,6 +6,7 @@ import rw.ac.rca.webapp.dao.StudentDAO;
 import rw.ac.rca.webapp.orm.Parent;
 import rw.ac.rca.webapp.orm.Student;
 import rw.ac.rca.webapp.orm.Student;
+import rw.ac.rca.webapp.util.Formatter;
 
 import java.util.List;
 
@@ -62,13 +63,14 @@ public class StudentDAOImpl extends DAO implements StudentDAO {
     public Student getStudentById(int id) {
         try {
             begin();
-            Query query = getSession().createQuery("from Student where id=:id");
+            Query query = getSession().createQuery("from Student where id= :id");
             query.setParameter("id", id);
-            Student student = (Student) query.list();
+            Student student = (Student) query.uniqueResult();
+            Formatter.printRedMessage("Student gotten : " + student);
             commit();
             return  student;
         }catch (Exception exception){
-            System.out.println("Failed to get student by id");
+            System.out.println("Failed to get student by id" + exception.getMessage());
             rollback();
             return null;
         }

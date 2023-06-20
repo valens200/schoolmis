@@ -2,6 +2,8 @@ package rw.ac.rca.webapp.dao.impl;
 import org.hibernate.Query;
 import rw.ac.rca.webapp.dao.EmployeeDAO;
 import rw.ac.rca.webapp.orm.Employee;
+import rw.ac.rca.webapp.util.Formatter;
+
 import java.util.List;
 
 public class EmployeeDAOImpl extends DAO implements EmployeeDAO {
@@ -19,6 +21,7 @@ public class EmployeeDAOImpl extends DAO implements EmployeeDAO {
             begin();
             Query query = getSession().createQuery("from Employee");
             List<Employee> employees = query.list();
+            Formatter.printRedMessage("Employees : " + employees);
             commit();
             return  employees;
         }catch (Exception exception){
@@ -34,9 +37,8 @@ public class EmployeeDAOImpl extends DAO implements EmployeeDAO {
             getSession().saveOrUpdate(employee);
             commit();
             return employee;
-
         }catch (Exception e){
-            System.out.println("Error, failed to save an employee : " + e.getMessage());
+            Formatter.printRedMessage("Error, failed to save an employee : " + e.getMessage());
             rollback();
             return null;
         }
@@ -47,7 +49,8 @@ public class EmployeeDAOImpl extends DAO implements EmployeeDAO {
         try {
             begin();
             Query query = getSession().createQuery("from Employee where id =:id");
-            Employee employee = (Employee) query.list();
+            query.setParameter("id", id);
+            Employee employee = (Employee) query.uniqueResult();
             commit();
             return employee;
         }catch (Exception exception){

@@ -11,7 +11,7 @@
 <form
         class="flex h-fit flex-col max-w-[600px] p-4 w-full shadow-lg mt-7 p-5 w-[20%] gap-y-4"
         method="POST"
-        action="update.php?id=${id}&page=createManager"
+        action="update.php?id=${id}&page=updateManager"
 >
   <c:if test="${message != null}">
     <span class="text-yellow-700"> ${message}</span>
@@ -35,15 +35,15 @@
             value="${manager.lastName}"
             required />
   </div>
-  <div class="flex flex-col gap-y-1">
-    <label class=" px-2" for="email">Email </label>
-    <input
-            class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
-            name="email"
-            type="text"
-            value="${manager.email}"
-            required />
-  </div>
+<%--  <div class="flex flex-col gap-y-1">--%>
+<%--    <label class=" px-2" for="email">Email </label>--%>
+<%--    <input--%>
+<%--            class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"--%>
+<%--            name="email"--%>
+<%--            type="text"--%>
+<%--            value="${manager.email}"--%>
+<%--            required />--%>
+<%--  </div>--%>
   <div class="flex flex-col gap-y-1">
     <label class=" px-2" for="phoneNumber"> phoneNumber</label>
     <input
@@ -66,7 +66,7 @@
           class="p-3 mt-1 px-9 rounded-md w-fit bg-violet-800 hover:bg-violet-900 duration-300 uppercase  text-white text-sm"
           type="submit"
   >
-    Register Manager
+    Update Manager
   </button>
 </form>
 <%@ include file="../../components/footer.jsp" %>

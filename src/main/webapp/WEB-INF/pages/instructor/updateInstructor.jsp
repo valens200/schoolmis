@@ -32,7 +32,7 @@
                 class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
                 name="lastName"
                 type="text"
-                value="${instructor.getlastName()}"
+                value="${instructor.lastName}"
                 required />
     </div>
     <div class="flex flex-col gap-y-1">
@@ -41,7 +41,7 @@
                 class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
                 name="phoneNumber"
                 type="text"
-                value="${instructor.getPhoneNumber()}"
+                value="${instructor.phoneNumber}"
                 required />
     </div>
     <div class="flex flex-col gap-y-1">
@@ -50,7 +50,7 @@
                 class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
                 name="salary"
                 type="number"
-                value="${instructor.getSalary()}"
+                value="${instructor.salary}"
                 required />
     </div>
     <div class="flex flex-col gap-y-1">
@@ -59,7 +59,7 @@
                 class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
                 name="renumerationTime"
                 type="date"
-                value="${instructor.getRenumerationTime()}"
+                value="${instructor.remunerationDate}"
                 required />
     </div>
     <div class="flex flex-col gap-y-1">
@@ -68,7 +68,7 @@
                 class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
                 name="dob"
                 type="date"
-                value="${instructor.getDateOfBirth()}"
+                value="${instructor.dateOfBirth}"
                 required />
     </div>
     <button

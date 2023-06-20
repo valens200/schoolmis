@@ -72,7 +72,7 @@ public class UserDAOImpl extends DAO implements UserDAO {
 	public User updateUser(User user) {
 		try {
 			begin();
-			getSession().update(user);
+			getSession().saveOrUpdate(user);
 			commit();
 			return user;
 		} catch (Exception e) {
@@ -130,7 +130,7 @@ public class UserDAOImpl extends DAO implements UserDAO {
 	public User getUserById(int id) {
 		try {
 			begin();
-			Query query = getSession().createQuery("from User where id= :ref");
+			Query query = getSession().createQuery("from User where id=:ref");
 			query.setInteger("ref", id);
 			User user = (User) query.uniqueResult();
 			commit();

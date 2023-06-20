@@ -4,7 +4,7 @@
          version="2.5">
     <display-name>rcamis</display-name>
     <welcome-file-list>
-        <welcome-file>login.php</welcome-file>
+        <welcome-file>home.php</welcome-file>
     </welcome-file-list>
     <servlet>
         <description>login as user</description>
@@ -15,6 +15,17 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login.php</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>homepage as user</description>
+        <display-name>Home</display-name>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>rw.ac.rca.webapp.web.Home</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home.php</url-pattern>
     </servlet-mapping>
     <servlet>
         <description>create course</description>

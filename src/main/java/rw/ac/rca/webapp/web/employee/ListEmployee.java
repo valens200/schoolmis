@@ -41,11 +41,10 @@ public class ListEmployee extends HttpServlet {
         if (pageRedirect != null) {
             if (pageRedirect.equals("employees") && request.getParameter("action").equals("list")) {
                 List<Employee> employees = employeeDAO.getAllEmployees();
-                httpSession.setAttribute("employees", employees);
                 request.setAttribute("employees", employees);
                 UserRole[] userRoles = UserRole.values();
                 httpSession.setAttribute("userRoles", userRoles);
-                request.getRequestDispatcher("WEB-INF/employee/employees.jsp").forward(request , response);
+                request.getRequestDispatcher("WEB-INF/pages/employee/employees.jsp").forward(request , response);
             }
         } else {
             httpSession.setAttribute("error", "Invalid User. Try again!");
