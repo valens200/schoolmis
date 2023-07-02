@@ -8,8 +8,9 @@
 <jsp:include page="../components/mainheader.jsp">
     <jsp:param value="Register" name="title"/>
 </jsp:include>
+<div class="h-screen  bg-no-repeat bg-cover bg-[url('https://www.rca.ac.rw/images/visit-to-DMM-Hehe2.jpg')] flex flex-col items-center justify-center">
 <form
-        class="flex rounded-md border-2 h-fit flex-col mx-auto p-4 w-full mt-28 gap-y-4 max-w-[450px]"
+        class="flex  bg-white rounded-md border-2 h-fit flex-col mx-auto p-4 w-full mt-28 gap-y-4 max-w-[450px]"
         method="POST"
         action="register.php"
 >
@@ -64,6 +65,7 @@
         <a class="mt-6 text-blue-700" href="login.php">Login</a>
     </div>
 </form>
+</div>
 <%@ include file="../components/footer.jsp" %>
 </body>
 </html>

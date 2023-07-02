@@ -249,7 +249,7 @@
         <description>generating courses excel report</description>
         <display-name>GenerateManagersReportFilterDate</display-name>
         <servlet-name>GenerateManagersReportFilterDate</servlet-name>
-        <servlet-class>rw.ac.rca.webapp.web.course.GenerateManagersReportFilterDate</servlet-class>
+        <servlet-class>rw.ac.rca.webapp.web.student.GenerateStudentsReport</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GenerateManagersReportFilterDate</servlet-name>

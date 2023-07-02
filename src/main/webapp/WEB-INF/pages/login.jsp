@@ -6,10 +6,10 @@
 <jsp:include page="../components/mainheader.jsp">
 	<jsp:param value="Login page" name="title" />
 </jsp:include>
-<div class="h-screen flex flex-col items-center justify-center">
+<div class="h-screen  bg-no-repeat bg-cover bg-[url('https://www.rca.ac.rw/images/visit-to-DMM-Hehe2.jpg')] flex flex-col items-center justify-center">
 	<img src="images/rcalogo.png" />
 <form
-		class="flex rounded-md border-2 h-fit flex-col mx-auto p-4 w-full gap-y-4 max-w-[450px]"
+		class="flex bg-white mt-4 rounded-md border-2 h-fit flex-col mx-auto p-4 w-full gap-y-4 max-w-[450px]"
 		method="POST"
 		action="login.php"
 >

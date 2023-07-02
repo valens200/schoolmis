@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.scheduling.annotation.Async;
 import rw.ac.rca.webapp.orm.*;
 
 import javax.servlet.ServletOutputStream;
@@ -181,10 +182,11 @@ public class ExcelDownloader {
     }
 
     public static void downloadStudentsExcel(List<Student> students, HttpServletResponse response){
+        Formatter.printRedMessage("=================== helloooooooooooo ============= 1");
+
         try (Workbook workbook = new SXSSFWorkbook();
              ByteArrayOutputStream out = new ByteArrayOutputStream();
              ServletOutputStream servletOutputStream = response.getOutputStream()) {
-
             int k = 1;
             String sheetTitle = "students list";
             Sheet sheet = workbook.createSheet(sheetTitle.replace("/", "&"));
@@ -222,22 +224,20 @@ public class ExcelDownloader {
                 } else {
                     row.createCell(4).setCellValue(user.getDateOfBirth());
                 }
-                row.createCell(2).setCellValue("False");
-                row.createCell(2).setCellValue("False");
-                row.createCell(2).setCellValue("True");
+                row.createCell(5).setCellValue("False");
+                row.createCell(6).setCellValue("False");
+                row.createCell(7).setCellValue("True");
                 k++;
             }
-
             workbook.write(out);
-
+            Formatter.printRedMessage("=================== helloooooooooooo =============");
             InputStreamResource file = new InputStreamResource(new ByteArrayInputStream(out.toByteArray()));
             response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             response.setHeader("Content-Disposition", "attachment; filename=" + "students" + ".xlsx");
-
             servletOutputStream.write(out.toByteArray());
             servletOutputStream.flush();
         } catch (Exception exception) {
-            System.out.println("Error, failed to export excel file: " + exception.getMessage());
+            Formatter.printRedMessage("Error, failed to export excel file: " + exception.getMessage());
         }
     }
 

@@ -8,65 +8,34 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="images/rcalogo.png" type="image/x-icon"/>
     <title>RCA Management Portal</title>
+    <link rel="stylesheet" href="../cssfile.css" type="text/css"/>
+    <link rel="shortcut icon" href="images/rcalogo.png" type="image/x-icon"/>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<jsp:include page="../components/headeradmin.jsp">
-    <jsp:param value="marks" name="title"/>
-</jsp:include>
-<div class="flex flex-col w-full gap-y-4">
-    <div class="flex w-full items-center justify-between">
-        <h1 class="font-semibold text-xl text-center">Registered instructors</h1>
-        <h1 class="font-semibold text-xl hover:bg-violet-900  text-white w-[30%] p-2 rounded-lg text-center">Registered instructors</h1>
-
-        <div class="flex flex-row  gap-4">
-            <a href="generate_instructors_report.php" class="bg-violet-800 flex gap-4 justify-between hover:bg-violet-900 text-white  font-bold py-2 px-3 rounded">
-                <i class="bx text-xl font-bold bx-download"></i>  Download excel
-            </a>
-            <a href="create_instructor.php?page=createInstructor" class="bg-violet-800 hover:bg-violet-900 text-white gap-x-3 font-bold py-2 px-4 rounded">
-                <i class="bx bx-plus"></i>  Add Instructor
-            </a>
+<div class="home bg-no-repeat h-[100vh] w-[100%]  bg-cover bg-[url('https://www.rca.ac.rw/images/visit-to-DMM-Hehe2.jpg')]">
+    <div class="flex items-center h-[10%] w-[90%] mx-auto  text-white  flex-row  justify-between">
+        <div class="w-[70%]">
+         <h2 class="text-bold text-sm"> RCA Management system</h2>
+        </div>
+        <div class="flex w-[20%] justify-end flex-row items-center space-x-4">
+            <a  class=" w-[30%]" href="login.php"><button class="bg-white text-black p-1 w-[100%]  hover:text-white rounded hover:bg-[#7c3aed]">Login</button></a>
         </div>
     </div>
-    <div class="w-full flex overflow-x-auto">
-        <table class="min-w-[500px]">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>PhoneNumber</th>
-                <th>Salary</th>
-                <th>Date of Birth</th>
-                <th>Remuneration time</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${instructors}" var="csr" varStatus="usrstatus">
-                <tr>
-                    <td>${csr.id}</td>
-                    <td>${csr.firstName}</td>
-                    <td>${csr.lastName}</td>
-                    <td>${csr.phoneNumber}</td>
-                    <td>${csr.salary}</td>
-                    <td>${csr.dateOfBirth}</td>
-                    <td>${csr.remunerationDate}</td>
-                    <td class="buttons flex space-x-4 justify-end">
-                        <a href="update.php?id=${csr.id}&page=updateInstructor">
-                            <button type="submit"><i class='bx bxs-edit text-2xl'></i></button>
-                        </a>
-                        <a href="delete.php?id=${csr.id}&page=deleteInstructor">
-                            <button type="submit"><i class='bx bxs-trash text-2xl'></i></button>
-                        </a>
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+    <div class="h-[80%]  flex justify-end items-center space-y-5  text-white font-bold flex flex-col items-center justify-center">
+        <h1 class="w-[70%] text-4xl text-center">RCA Management System, All courses , <span class="text-[#462692]">managers</span>, <span class="text-[#462692]">employees</span> , <span class="text-[#462692]">Marks
+        </span> management in one.</h1>
+        <a class="w-[80%] flex flex-col animate-bounce justify-center items-center" href="register.php">
+            <iconify-icon class="text-4xl" icon="bx:arrow-from-top"></iconify-icon>
+            <button class="text-white p-2 w-[10%] mx-auto hover:text-black  rounded  hover:bg-white bg-[#7c3aed]">Register</button>
+        </a>
+    </div>
+    <div>
+        <div class="text-white">
+            <p>Powered by <a href="valensniyonsenga2003@gmail.com">Valens NIYONSENGA</a></p>
+        </div>
     </div>
 </div>
-</div>
-</div>
-</div>
 </body>
-<%--<%@ include file="../footer.jsp" %>--%>

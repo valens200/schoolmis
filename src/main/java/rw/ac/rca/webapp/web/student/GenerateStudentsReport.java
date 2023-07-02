@@ -9,6 +9,8 @@ import rw.ac.rca.webapp.dao.impl.UserDAOImpl;
 import rw.ac.rca.webapp.orm.Student;
 import rw.ac.rca.webapp.orm.User;
 import rw.ac.rca.webapp.util.ExcelDownloader;
+import rw.ac.rca.webapp.util.Formatter;
+
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
