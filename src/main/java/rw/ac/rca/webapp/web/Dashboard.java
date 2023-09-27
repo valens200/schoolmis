@@ -41,21 +41,34 @@ public class Dashboard extends HttpServlet {
        if(!employeeDAO.getAllEmployees().isEmpty())
            num = employeeDAO.getAllEmployees().size();
        httpSession.setAttribute("employees", num);
-       if(studentDAO.getAllStudents() == null){
+       if(instructorDAO.getAllInstructors() == null || instructorDAO.getAllInstructors().isEmpty()){
            httpSession.setAttribute("instructors", 0);
        }else{
            httpSession.setAttribute("instructors", instructorDAO.getAllInstructors().size());
        }
-       if(courseDAO.getAllCourses() == null){
+       if(courseDAO.getAllCourses() == null || courseDAO.getAllCourses().isEmpty()){
            httpSession.setAttribute("courses", 0);
        }else{
            httpSession.setAttribute("courses", courseDAO.getAllCourses().size());
        }
-       if(studentDAO.getAllStudents() == null){
+       if(studentDAO.getAllStudents() == null || studentDAO.getAllStudents().isEmpty()){
            httpSession.setAttribute("studentsNumber", 0);
        }else{
            httpSession.setAttribute("studentsNumber", studentDAO.getAllStudents().size());
        }
+
+       if(managerDAO.getAllManagers().isEmpty() || managerDAO.getAllManagers() == null){
+           httpSession.setAttribute("managers" , 0);
+       }else{
+           httpSession.setAttribute("managers" , managerDAO.getAllManagers().size());
+       }
+
+       if(userDAO.getAllUsers().isEmpty() || userDAO.getAllUsers() == null){
+           httpSession.setAttribute("users" , 0);
+       }else{
+           httpSession.setAttribute("users" , userDAO.getAllUsers().size());
+       }
+
        request.getRequestDispatcher("WEB-INF/pages/dashboard.jsp").forward(
                request, response);
    }

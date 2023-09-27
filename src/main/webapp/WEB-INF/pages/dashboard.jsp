@@ -46,32 +46,32 @@
     <div class="grid w-full gap-4 xl:grid-cols-6 md:grid-cols-5 sm:grid-cols-4">
         <a href="listcourse.php" class="flex flex-col gap-2 rounded-md duration-300 hover-text-white shadow-md border-[1px] hover:scale-110 hover:bg-slate-200 p-4 items-center">
             <i class="bx bx-book-open text-3xl text-violet-800"></i>
-            <p>56 courses</p>
+            <p>${courses} courses</p>
             <h1 class="text-lg font-semibold">View Courses</h1>
         </a>
         <a href="listuser.php" class="flex flex-col gap-2 rounded-md duration-300 hover-text-white shadow-md border-[1px] hover:scale-110 hover:bg-slate-200 p-4 items-center">
             <i class="bx bx-user text-3xl text-violet-800"></i>
-            <p>60 users</p>
+            <p>${users} users</p>
             <h1 class="text-lg font-semibold">View Users</h1>
         </a>
         <a href="students.php?page='marks'?action='list'" class="flex flex-col gap-2 rounded-md duration-300 hover-text-white shadow-md border-[1px] hover:scale-110 hover:bg-slate-200 p-4 items-center">
             <i class="bx bx-user text-3xl text-violet-800"></i>
-                <p><%= number%></p>
+                <p>${studentsNumber} students</p>
             <h1 class="text-lg font-semibold">View Students</h1>
         </a>
         <a href="instructors.php" class="flex flex-col gap-2 rounded-md duration-300 hover-text-white shadow-md border-[1px] hover:scale-110 hover:bg-slate-200 p-4 items-center">
             <i class="bx bx-user text-3xl text-violet-800"></i>
-            <p>60 instructors</p>
+            <p>${instructors} instructors</p>
             <h1 class="text-lg font-semibold">View Instructors</h1>
         </a>
         <a href="employees.php" class="flex flex-col gap-2 rounded-md duration-300 hover-text-white shadow-md border-[1px] hover:scale-110 hover:bg-slate-200 p-4 items-center">
             <i class="bx bx-user text-3xl text-violet-800"></i>
-            <p>32 employees</p>
+            <p>${employees} employees</p>
             <h1 class="text-lg font-semibold">View Employees</h1>
         </a>
         <a href="managers.php" class="flex flex-col gap-2 rounded-md duration-300 hover-text-white shadow-md border-[1px] hover:scale-110 hover:bg-slate-200 p-4 items-center">
             <i class="bx bx-user text-3xl text-violet-800"></i>
-            <p>${employees}</p>
+            <p>${managers} managers</p>
             <h1 class="text-lg font-semibold">View Managers</h1>
         </a>
     </div>
