@@ -34,9 +34,9 @@
         <th>Last Name</th>
         <th>Phone Number</th>
         <th>dateOfBirth</th>
-        <th>isInternational</th>
-        <th>isPartTime</th>
-        <th>isRepeating</th>
+<%--        <th>isInternational</th>--%>
+<%--        <th>isPartTime</th>--%>
+<%--        <th>isRepeating</th>--%>
         <th>Action</th>
       </tr>
       </thead>
@@ -48,9 +48,9 @@
           <td>${usr.lastName}</td>
           <td>${usr.phoneNumber}</td>
           <td>${usr.dateOfBirth}</td>
-          <td>false</td>
-          <td>false</td>
-          <td>false</td>
+<%--          <td>false</td>--%>
+<%--          <td>false</td>--%>
+<%--          <td>false</td>--%>
           <td class="buttons flex space-x-4 justify-end">
             <a href="update.php?id=${usr.id}&page=updateStudent">
               <button type="submit"><i class='bx bxs-edit text-2xl'></i></button>

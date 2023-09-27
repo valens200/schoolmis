@@ -13,9 +13,9 @@
         method="POST"
         action="createstudent.php?page=createStudent"
 >
-  <c:if test="${message != null}">
-    <span class="text-yellow-700"> ${message}</span>
-  </c:if>
+<%--  <c:if test="${message != null}">--%>
+<%--    <span class="text-yellow-700"> ${message}</span>--%>
+<%--  </c:if>--%>
   <h2 class=" text-2xl ">Student Registration</h2>
   <div class="flex flex-col gap-y-1">
     <label class=" px-2" for="FirstName"> FirstName</label>
