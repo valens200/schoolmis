@@ -58,6 +58,8 @@ public class Login extends HttpServlet {
 		HttpSession httpSession = request.getSession();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+
+		System.out.println("The username is  ==== " + username + " and the password is " + password);
 		String usernotfound = null;
 
 		if (username == null || username.equals("")) {
@@ -81,14 +83,9 @@ public class Login extends HttpServlet {
 
 				if (authenticatedUser != null) {
 					UserRole privilege = authenticatedUser.getUserRole();
-
-					LOG.info("The user [ " + privilege + " ] with privilege [ "
-							+ authenticatedUser.getUserRole().getRoleDescription() + " ] successfuly logged in");
-
 					httpSession.setAttribute("authenticatedUser", authenticatedUser);
 					httpSession.setAttribute("privilege", privilege);
 					httpSession.setAttribute("username", authenticatedUser.getUsername());
-//					set cookie
 					Util.setCookie(response, "authenticatedUser", authenticatedUser.getUsername());
 					Util.setCookie(response, "privilege", privilege.toString());
 					Util.setCookie(response, "username", authenticatedUser.getUsername());

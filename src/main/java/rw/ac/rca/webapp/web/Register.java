@@ -50,7 +50,6 @@ public class Register extends HttpServlet {
         String userfullname = request.getParameter("userfullname");
         String email = request.getParameter("email");
         String userRole = request.getParameter("userRole");
-//        set user role to user (default) if not selected (null)
         if (userRole == null) {
             userRole = "GUEST";
         }

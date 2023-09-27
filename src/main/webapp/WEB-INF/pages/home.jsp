@@ -15,7 +15,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<div class="home bg-no-repeat h-[100vh] w-[100%]  bg-cover bg-[url('https://www.rca.ac.rw/images/visit-to-DMM-Hehe2.jpg')]">
+<div class="home bg-no-repeat h-[100vh] w-[100%]  bg-cover bg-[black] bg-[url('https://rca.ac.rw/images/visit-to-DMM-Hehe.jpg')]">
     <div class="flex items-center h-[10%] w-[90%] mx-auto  text-white  flex-row  justify-between">
         <div class="w-[70%]">
          <h2 class="text-bold text-sm"> RCA Management system</h2>

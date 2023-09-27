@@ -29,10 +29,10 @@
         <i class="bx bx-image text-3xl text-violet-800"></i>
         Pictures From Rwanda Academy</h1>
     <div class="grid w-full gap-4 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
-        <img src="https://www.rca.ac.rw/images/Amb-Israel-Ron-Adam.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
-        <img src="https://www.rca.ac.rw/images/05.jpg" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
-        <img src="https://www.rca.ac.rw/images/09.jpg" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
-        <img src="https://www.rca.ac.rw/images/visit-to-DMM-Hehe2.jpg" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
+        <img src="images/im3.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
+        <img src="images/im1.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
+        <img src="images/im4.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
+        <img src="images/im2.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
         <img src="images/im1.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
         <img src="images/im2.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
         <img src="images/im3.JPG" class="w-full h-full object-cover rounded-md aspect-[3/2]"/>
