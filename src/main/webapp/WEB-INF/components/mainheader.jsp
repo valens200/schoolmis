@@ -10,6 +10,8 @@
     <link rel="shortcut icon" href="images/rcalogo.png" type="image/x-icon"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="module" src="js/main.js"></script>
     <title>${param.title} - RCA SMIS</title>
 </head>
 <body>

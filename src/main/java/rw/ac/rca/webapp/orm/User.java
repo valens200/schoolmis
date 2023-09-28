@@ -42,7 +42,7 @@ public class User implements Serializable {
 	private String fullName;
 	@Column(nullable = false, unique = true)
 	private String email;
-	@Enumerated(EnumType.ORDINAL)
+	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 
 	public User() {

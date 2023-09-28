@@ -54,6 +54,7 @@ public class Register extends HttpServlet {
             userRole = "GUEST";
         }
         UserRole usrr = UserRole.valueOf(userRole);
+        System.out.println("============================================"+usrr);
 
         try {
             String hashedPsw = Util.generateHashed512(passwordauth);

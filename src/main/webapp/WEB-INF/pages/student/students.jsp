@@ -26,6 +26,7 @@
   <jsp:param value="users" name="title"/>
 </jsp:include>
 <div class="flex flex-col w-full gap-y-4">
+  <jsp:include page="../../components/search.jsp"></jsp:include>
   <div class="flex w-full items-center justify-between">
     <h1 class="font-semibold text-xl text-center">Registered students</h1>
     <div class="flex flex-row  gap-4">

@@ -1,9 +1,9 @@
-
+<%@ page import="rw.ac.rca.webapp.orm.User" %>
 <%@include file="mainheader.jsp"%>
 <%
     // Check if there is an authenticated user (you need to define this condition)
     boolean isAuthenticated = request.getSession().getAttribute("authenticatedUser") != null;
-
+    User user = (User) request.getSession().getAttribute("authenticatedUser");
     if (!isAuthenticated) {
         System.out.println("User is not authenticated ⛔️");
         // If not authenticated, redirect to the login page
@@ -11,7 +11,7 @@
         System.out.println("Redirecting to: " + loginPageURL);
         response.sendRedirect( "/login.jsp");
     } else {
-        System.out.println("User is authenticated ✅");
+        System.out.println("User is authenticated ✅" + user.getUserRole().toString());
     }
 %>
 
@@ -19,10 +19,6 @@
     <%@ include file="../sidebar.jsp" %>
     <div class="flex flex-col w-full md:pl-[250px] min-h-screen">
         <div class="flex bg-white w-full justify-between p-4 border-b-[1px] sticky top-0">
-            <div class="flex w-full max-w-[400px] py-2 px-3 border-2 rounded-md">
-                <i class='bx bx-search text-2xl'></i>
-                <input type="text" class="w-full outline-none px-2" placeholder="Search...">
-            </div>
             <div>
                 <p>${responseMessage}</p>
             </div>
