@@ -15,8 +15,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<div class="home bg-no-repeat h-[100vh] w-[100%]  bg-cover bg-[black] bg-[url('https://rca.ac.rw/images/visit-to-DMM-Hehe.jpg')]">
-    <div class="flex items-center h-[10%] w-[90%] mx-auto  text-white  flex-row  justify-between">
+<div class="home bg-no-repeat h-[100vh] w-[100%]  bg-cover bg-opacity-70 bg-[url('https://rca.ac.rw/images/Amb-Israel-Ron-Adam.JPG')]">
+    <div class="flex items-center w-full px-11 py-5  text-white  flex-row  justify-between">
         <div class="w-[70%]">
          <h2 class="text-bold text-sm"> RCA Management system</h2>
         </div>
@@ -32,10 +32,10 @@
             <button class="text-white p-2 w-[10%] mx-auto hover:text-black  rounded  hover:bg-white bg-[#7c3aed]">Register</button>
         </a>
     </div>
-    <div>
-        <div class="text-white">
-            <p>Powered by <a href="valensniyonsenga2003@gmail.com">Valens NIYONSENGA</a></p>
-        </div>
-    </div>
+<%--    <div>--%>
+<%--        <div class="text-white">--%>
+<%--            <p>Powered by <a href="valensniyonsenga2003@gmail.com">Valens NIYONSENGA</a></p>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 </div>
 </body>
