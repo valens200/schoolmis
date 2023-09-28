@@ -1,4 +1,4 @@
-package rw.ac.rca.webapp.web;
+package rw.ac.rca.webapp.web.user;
 
 import java.io.IOException;
 
@@ -17,14 +17,14 @@ import rw.ac.rca.webapp.dao.impl.UserDAOImpl;
 /**
  * Servlet implementation class CreateUser
  */
-public class Register extends HttpServlet {
+public class CreateUser extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDAO userDAO = UserDAOImpl.getInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Register() {
+    public CreateUser() {
         super();
     }
 
@@ -35,7 +35,7 @@ public class Register extends HttpServlet {
         HttpSession httpSession = request.getSession();
         UserRole[] userRoles = UserRole.values();
         httpSession.setAttribute("userRoles", userRoles);
-        request.getRequestDispatcher("WEB-INF/pages/register.jsp").forward(
+        request.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(
                 request, response);
     }
 
@@ -45,16 +45,28 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
         User user = new User();
+        System.out.println("============================================");
         String usernameauth = request.getParameter("username");
         String passwordauth = request.getParameter("password");
         String userfullname = request.getParameter("userfullname");
         String email = request.getParameter("email");
         String userRole = request.getParameter("userRole");
-        if (userRole == null) {
-            userRole = "GUEST";
-        }
         UserRole usrr = UserRole.valueOf(userRole);
 
+        User user1 = userDAO.getUserByEmailAddress(email);
+        if (user1 != null) {
+            httpSession.setAttribute("message", "Email already exists");
+            request.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(
+                    request, response);
+            return;
+        }
+        User user2 = userDAO.getUserByUsername(usernameauth);
+        if (user2 != null) {
+            httpSession.setAttribute("message", "Username already exists");
+            request.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(
+                    request, response);
+            return;
+        }
         try {
             String hashedPsw = Util.generateHashed512(passwordauth);
             user.setUsername(usernameauth);
@@ -66,11 +78,13 @@ public class Register extends HttpServlet {
             userDAO.saveOrUpdateUser(user);
 
             httpSession.setAttribute("message", "Created successfully");
-            request.getRequestDispatcher("WEB-INF/pages/login.jsp").forward(
-                    request, response);
+            // response.sendRedirect("login");
+//            request.getRequestDispatcher("WEB-INF/pages/users.jsp").forward(
+//                    request, response);
         } catch (Exception e) {
             httpSession.setAttribute("message", "Can't Create");
         }
     }
-
 }
+
+

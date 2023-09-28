@@ -70,11 +70,11 @@
     </div>
     <div class="flex flex-col gap-y-3 w-full">
         <a
-                href="/"
+                href="/logout.php"
                 class="flex items-center rounded-md py-2 px-3 hover:bg-blue-500/30 hover:text-blue-500 duration-200"
         >
-            <i class="bx bx-cog text-lg"></i>
-            <h1 class="ml-2">settings</h1>
+            <i class="bx bx-log-out text-lg"></i>
+            <h1 class="ml-2">Logout</h1>
         </a>
     </div>
 </div>

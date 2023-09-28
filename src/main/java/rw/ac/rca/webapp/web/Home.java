@@ -15,6 +15,7 @@ import rw.ac.rca.webapp.dao.impl.UserDAOImpl;
 import rw.ac.rca.webapp.orm.User;
 import rw.ac.rca.webapp.util.UserRole;
 import rw.ac.rca.webapp.util.Util;
+import rw.ac.rca.webapp.web.auth.Login;
 
 /**
  * Servlet implementation class Login

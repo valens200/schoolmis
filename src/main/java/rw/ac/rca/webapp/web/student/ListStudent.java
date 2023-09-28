@@ -1,4 +1,4 @@
-package rw.ac.rca.webapp.web;
+package rw.ac.rca.webapp.web.student;
 
 import rw.ac.rca.webapp.dao.StudentDAO;
 import rw.ac.rca.webapp.dao.UserDAO;
@@ -32,7 +32,7 @@ public class ListStudent extends HttpServlet {
         httpSession.setAttribute("students", students);
         request.setAttribute("students", students);
         System.out.println("======================== students==========" + students);
-        request.getRequestDispatcher("WEB-INF/pages/students.jsp").forward(
+        request.getRequestDispatcher("WEB-INF/pages/student/students.jsp").forward(
                 request, response);
     }
     /**

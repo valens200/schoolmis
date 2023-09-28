@@ -10,7 +10,7 @@
     <title>List of Course</title>
 </head>
 <body>
-<jsp:include page="../components/headeradmin.jsp">
+<jsp:include page="../../components/headeradmin.jsp">
     <jsp:param value="courses" name="title"/>
 </jsp:include>
 <div class="flex flex-col w-full gap-y-4">

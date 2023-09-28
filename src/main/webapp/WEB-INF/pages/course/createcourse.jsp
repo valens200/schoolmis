@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<jsp:include page="../components/headeradmin.jsp">
+<jsp:include page="../../components/headeradmin.jsp">
     <jsp:param
             name="title" value="Create Course"/>
 </jsp:include>
@@ -73,4 +73,4 @@
         Create Course
     </button>
 </form>
-<%@ include file="../components/footer.jsp" %>
+<%@ include file="../../components/footer.jsp" %>

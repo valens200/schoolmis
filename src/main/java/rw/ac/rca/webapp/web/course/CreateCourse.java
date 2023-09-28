@@ -66,7 +66,6 @@ public class CreateCourse extends HttpServlet {
 
         List<Course> courses = courseDAO.getAllCourses();
         request.setAttribute("courses", courses);
-        request.getRequestDispatcher("WEB-INF/pages/listcourse.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/pages/course/listcourse.jsp").forward(request, response);
     }
-
 }

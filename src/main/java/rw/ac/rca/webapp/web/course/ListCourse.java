@@ -1,4 +1,4 @@
-package rw.ac.rca.webapp.web;
+package rw.ac.rca.webapp.web.course;
 
 import rw.ac.rca.webapp.dao.CourseDAO;
 import rw.ac.rca.webapp.dao.impl.CourseDAOImpl;
@@ -34,7 +34,7 @@ public class ListCourse extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		List<Course> courses = courseDAO.getAllCourses();
 		request.setAttribute("courses", courses);
-		request.getRequestDispatcher("WEB-INF/pages/listcourse.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/pages/course/listcourse.jsp").forward(request, response);
 	}
 
 	/**

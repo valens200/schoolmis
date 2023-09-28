@@ -3,6 +3,9 @@
  */
 package rw.ac.rca.webapp.orm;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +28,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "course")
+@Getter
+@Setter
 public class Course implements Serializable{
 	
 	/**
@@ -99,11 +104,17 @@ public class Course implements Serializable{
 	public void setStart(Date start) {
 		this.start = start;
 	}
+	public void setStart(String start) {
+		this.start = new Date(start);
+	}
 	public Date getEnd() {
 		return end;
 	}
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+	public void setEnd(String end) {
+		this.end = new Date(end);
 	}
 	public boolean isCancelled() {
 		return isCancelled;

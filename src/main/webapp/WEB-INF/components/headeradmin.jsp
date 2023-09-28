@@ -1,5 +1,20 @@
 
 <%@include file="mainheader.jsp"%>
+<%
+    // Check if there is an authenticated user (you need to define this condition)
+    boolean isAuthenticated = request.getSession().getAttribute("authenticatedUser") != null;
+
+    if (!isAuthenticated) {
+        System.out.println("User is not authenticated ⛔️");
+        // If not authenticated, redirect to the login page
+        String loginPageURL = request.getContextPath() + "/login.php";
+        System.out.println("Redirecting to: " + loginPageURL);
+        response.sendRedirect( "/login.jsp");
+    } else {
+        System.out.println("User is authenticated ✅");
+    }
+%>
+
 <div id="flex  w-full">
     <%@ include file="../sidebar.jsp" %>
     <div class="flex flex-col w-full md:pl-[250px] min-h-screen">

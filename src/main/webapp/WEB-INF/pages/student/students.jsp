@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<%
+  // Check if there is an authenticated user (you need to define this condition)
+  boolean isAuthenticated = request.getSession().getAttribute("authenticatedUser") != null;
+
+  if (!isAuthenticated) {
+    System.out.println("User is not authenticated ⛔️");
+    // If not authenticated, redirect to the login page
+    response.sendRedirect(request.getContextPath() + "/login.php");
+  } else {
+    System.out.println("User is authenticated ✅");
+  }
+%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -10,7 +22,7 @@
   <title>Students List</title>
 </head>
 <body>
-<jsp:include page="../components/headeradmin.jsp">
+<jsp:include page="../../components/headeradmin.jsp">
   <jsp:param value="users" name="title"/>
 </jsp:include>
 <div class="flex flex-col w-full gap-y-4">
