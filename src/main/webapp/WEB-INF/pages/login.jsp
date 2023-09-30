@@ -18,7 +18,7 @@
 	</c:if>
 	<h2 class=" text-2xl mx-auto">Get into your account</h2>
 	<div class="flex flex-col gap-y-1">
-		<label class=" px-2" for="username"> Username </label>
+		<label class=" px-2" for="username"> Username or Email </label>
 		<input
 				class="p-2 w-full border-blue-700/50 duration-300 focus:border-blue-700 rounded-md outline-none border-2"
 				name="username"

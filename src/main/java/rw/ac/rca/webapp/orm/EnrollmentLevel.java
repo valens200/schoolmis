@@ -34,7 +34,11 @@ public class EnrollmentLevel {
 		this.code = code;
 		this.name = name;
 	}
-	
+
+	public EnrollmentLevel() {
+
+	}
+
 	public List<Enrol> getEnrols() {
 		return enrols;
 	}

@@ -3,21 +3,21 @@
  */
 package rw.ac.rca.webapp.orm;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
-/**
- * @author Aphrodice Rwagaju
- *
- */
+ /**
+  * @author Aphrodice Rwagaju
+  *
+  */
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student extends Person{
 	/**
 	 * 
@@ -26,10 +26,10 @@ public class Student extends Person{
 	private boolean isInternational;
 	private boolean isPartTime;
 	private boolean isRepeating;
-	
+
 	public Student() {
 	}
-	
+
 	public Student(boolean isInternational, boolean isPartTime, boolean isRepeating) {
 		this.isInternational = isInternational;
 		this.isPartTime = isPartTime;
@@ -42,6 +42,10 @@ public class Student extends Person{
 	@ManyToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
+
+	@ManyToOne
+	@JoinColumn(name = "classroom_id")
+	private ClassRoom classroom;
 
     public Student(String firstName, String lastName, String studentPhoneNumber, Date studentDOB, boolean b, boolean b1, boolean b2) {
 		this.setFirstName(firstName);

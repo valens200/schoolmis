@@ -1,3 +1,4 @@
+<%@ page import="rw.ac.rca.webapp.util.UserRole" %>
 <div class=" w-[250px] border-r-[1px] text-black md:flex justify-between hidden flex-col p-4 py-9 bg-primary fixed top-0 left-0 h-screen">
     <div class="flex w-full flex-col">
         <a href=dashboard.php" class="flex w-fit items-center">
@@ -25,7 +26,7 @@
                 <h1 class="ml-2">Courses</h1>
             </a>
             <%--                        show user if role of auth user is adminÎ--%>
-            <c:if test="${authenticatedUser.userRole.toString() eq 'ADMIN'}">
+            <c:if test="${authenticatedUser.userRole.toString() eq UserRole.valueOf('ADMINISTRATOR')}">
                 <a
                         href="listuser.php"
                         class="flex items-center rounded-md py-2 px-3 hover:bg-blue-500/30 hover:text-blue-500 duration-200"
@@ -41,7 +42,7 @@
                 <i class='bx bx-group text-2xl'></i>
                 <h1 class="ml-2">Students</h1>
             </a>
-            <c:if test="${authenticatedUser.userRole.toString() != 'GUEST'}">
+            <c:if test="${authenticatedUser.userRole.toString() != UserRole.valueOf('GUEST')}">
                 <a
                         href="marks.php?page=marks&action=list"
                         class="flex items-center rounded-md py-2 px-3 hover:bg-blue-500/30 hover:text-blue-500 duration-200"
