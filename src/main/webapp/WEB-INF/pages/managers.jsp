@@ -44,7 +44,7 @@
           <td>${manager.firstName}</td>
           <td>${manager.lastName}</td>
           <td>${manager.phoneNumber}</td>
-          <td>${manager.dateOfBirth}</td>
+          <td data-type="date">${manager.dateOfBirth}</td>
           <td class="buttons flex space-x-4 justify-end">
             <a href="update.php?id=${manager.id}&page=updateManager">
               <button type="submit"><i class='bx bxs-edit text-2xl'></i></button>

@@ -46,6 +46,7 @@ public class User implements Serializable {
 	private UserRole userRole;
 
 	public User() {
+
 	}
 
 	/**

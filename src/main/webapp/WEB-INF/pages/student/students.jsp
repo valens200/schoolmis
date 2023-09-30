@@ -60,7 +60,7 @@
           <td>${usr.firstName}</td>
           <td>${usr.lastName}</td>
           <td>${usr.phoneNumber}</td>
-          <td>${usr.dateOfBirth}</td>
+          <td data-type="date">${usr.dateOfBirth}</td>
 <%--          <td>false</td>--%>
 <%--          <td>false</td>--%>
 <%--          <td>false</td>--%>

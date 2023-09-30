@@ -99,7 +99,9 @@ public class Login extends HttpServlet {
 //					} else {
 //						request.getRequestDispatcher("WEB-INF/pages/homenowhere.jsp").forward(request, response);
 //					}
-					request.getRequestDispatcher("WEB-INF/pages/dashboard.jsp").forward(request, response);
+//					request.getRequestDispatcher("WEB-INF/pages/dashboard.jsp").forward(request, response);
+					String redirectUrl = request.getContextPath() + "/dashboard.php";
+					response.sendRedirect(redirectUrl);
 				} else {
 					usernotfound = "Invalid user. Try again!";
 					LOG.info("Authentication failed. Username: " + username + " >>> pwd: " + password);

@@ -36,7 +36,7 @@
         <th>LastName</th>
         <th>PhoneNumber</th>
         <th>Salary</th>
-        <th>Date of Birth</th>
+        <th data-type="date">Date of Birth</th>
         <th>Remuneration time</th>
         <th>Action</th>
       </tr>

@@ -46,8 +46,8 @@
                     <td>${course.id}</td>
                     <td>${course.name}</td>
                     <td>${course.code}</td>
-                    <td>${course.start}</td>
-                    <td>${course.end}</td>
+                    <td data-type="date">${course.start}</td>
+                    <td data-type="date">${course.end}</td>
                     <td>${course.minStudent}</td>
                     <td>${course.maxStudent}</td>
                     <td class="buttons flex space-x-4 justify-end">
