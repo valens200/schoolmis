@@ -1,8 +1,7 @@
 package rw.ac.rca.webapp.orm;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import rw.ac.rca.webapp.util.EMarkType;
 
 import javax.persistence.*;
 
@@ -11,16 +10,24 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "mark")
+@Getter
+@Setter
 public class Mark {
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int Id;
     private int marks;
-    private String owner;
+    @ManyToOne
+    private Student owner;
+    @ManyToOne
+    private Course course;
+    @ManyToOne
+    private Semester semester;
+    private EMarkType type;
 
-    public Mark(String marks, String marksOwner) {
-        this.marks = Integer.parseInt(marks);
-        this.owner = marksOwner;
+    public Mark(int marks, Student owner) {
+        this.marks = marks;
+        this.owner = owner;
     }
 }

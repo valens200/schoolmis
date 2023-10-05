@@ -63,7 +63,7 @@ public class CreateUser extends HttpServlet {
         User user2 = userDAO.getUserByUsername(usernameauth);
         if (user2 != null) {
             httpSession.setAttribute("message", "Username already exists");
-            request.getRequestDispatcher("WEB-INF/pages/createuser.jsp").forward(
+            request.getRequestDispatcher("WEB-INF/pages/user/createuser.jsp").forward(
                     request, response);
             return;
         }

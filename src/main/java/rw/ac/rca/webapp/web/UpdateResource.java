@@ -129,9 +129,10 @@ public class UpdateResource extends HttpServlet {
                     break;
                 case "updateMark":
                     Mark availableMark = markDAO.getMarkById(id);
+                    Student owner = studentDAO.getStudentById(Integer.parseInt(request.getParameter("owner")));
                     mark = new Mark(
-                            request.getParameter("marks"),
-                            request.getParameter("owner")
+                            Integer.parseInt(request.getParameter("marks")),
+                            owner
                     );
                     availableMark.setMarks(mark.getMarks());
                     availableMark.setOwner(mark.getOwner());

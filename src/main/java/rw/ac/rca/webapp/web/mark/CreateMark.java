@@ -1,8 +1,11 @@
 package rw.ac.rca.webapp.web.mark;
 
 import rw.ac.rca.webapp.dao.MarkDAO;
+import rw.ac.rca.webapp.dao.StudentDAO;
 import rw.ac.rca.webapp.dao.impl.MarkDAOImpl;
+import rw.ac.rca.webapp.dao.impl.StudentDAOImpl;
 import rw.ac.rca.webapp.orm.Mark;
+import rw.ac.rca.webapp.orm.Student;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpSession;
 public class CreateMark extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private MarkDAO markDAO = MarkDAOImpl.getInstance();
+    private StudentDAO studentDAO = StudentDAOImpl.getInstance();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -63,9 +67,10 @@ public class CreateMark extends HttpServlet {
             if(pageRedirect.equals("createMark")){
                 Mark mark = null;
                 try {
+                    Student owner = studentDAO.getStudentById(Integer.parseInt(request.getParameter("owner")));
                     mark = new Mark(
-                            request.getParameter("marks"),
-                            request.getParameter("owner")
+                            Integer.parseInt(request.getParameter("mark")),
+                            owner
                     );
                     markDAO.saveOrUpdateMark(mark);
                     List<Mark> marks = markDAO.getAllMarks();

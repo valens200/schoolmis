@@ -11,6 +11,10 @@ th, td{
 	text-align: left;
 }
 
+td{
+	border-bottom-width: 0px;
+	border-top-width: 0px;
+}
 .home{
 	background-color: black;
 	height: 100vh;

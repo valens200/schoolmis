@@ -45,7 +45,7 @@ public class ListUser extends HttpServlet {
             httpSession.setAttribute("users", users);
             UserRole[] userRoles = UserRole.values();
             httpSession.setAttribute("userRoles", userRoles);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/users.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/user/users.jsp");
             dispatcher.forward(request, response);
         } else {
             httpSession.setAttribute("error", "You are not logged in. Please login first.");
